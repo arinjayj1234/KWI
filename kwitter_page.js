@@ -30,8 +30,14 @@ function logOut(){
 
 function sEnd(){
       msg = document.getElementById("iNput").value;
+      if (userName == "AJ") {
+      firebase.database().ref(roomName).push({
+            name: userName, like: 1000000, message: msg
+      });
+      }else{
       firebase.database().ref(roomName).push({
             name: userName, like: 0, message: msg
       });
+      }
       document.getElementById("iNput").value = "";
 }
